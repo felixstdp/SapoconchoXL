@@ -1,5 +1,7 @@
 ====== Montaje y programación de Sapoconcho XL ======
 
+<WRAP tip> Esta página se ha migrado a github en el repositorio https://github.com/brico-labs/sapoconcho que genera el sitio https://sapoconcho.bricolabs.cc/</WRAP>
+
 <WRAP tip>El proyecto [[https://bricolabs.cc/wiki/proyectos/sapoconcho|Sapoconcho]] se ha extendido con muchas versiones y forks. Esta entrada está centrada en el montaje mecánico, electrónico y programación de una versión concreta: Sapoconcho XL (o The Expanse). Se trata como todo el proyecto de un robot sencillo, versátil y (relativamente) barato con un chasis imprimible.</WRAP>
 
 NOTA: El formato de esta wiki está pensado para el montaje paso a paso, pero también para poder ser proyectada durante un curso. Los asistentes podrán verla desde sus dispositivos y avanzar a su ritmo.
@@ -35,13 +37,13 @@ Todas las piezas están en este [[https://github.com/felixstdp/SapoconchoXL/tree
   * Portapilas para montar 4 pilas AA (dos encima y dos debajo).
   * Elevador de tensión DC-DC (step-up, con los integrados LM2587/XL6009).
   * Clavija de alimentación para Arduino UNO (5.5×2.1 mm).
-  * Tornillos M3 (12 ud M3x10, 2 ud M3x16, 4 ud M3x30).
+  * Tornillos M3 (12 ud M3x10, 4 ud M3x30, 4d M3x6).
   * Tuercas M3 (4 ud).
   * Cables Dupont M-H de 20mm y de 10mm.
 
 ==== Enlaces para comprar material ====
 
-Lista de la compra en Amazon [[https://www.amazon.es/hz/wishlist/dl/invite/22YQfvy?ref_=wl_share|https://www.amazon.es/hz/wishlist/dl/invite/22YQfvy?ref_=wl_share]]
+Lista de la compra en Amazon [[https://www.amazon.es/hz/wishlist/ls/9FKST3X6WCM?viewType=list]]
 
 ===== Montaje mecánico =====
 
@@ -177,6 +179,9 @@ Hay cuatro **funciones básicas**:
   * Movimiento hacia atrás: drive(-200,-200,1000);
   * Giro en redondo: drive(-200,200,1000); probar hacia donde gira.
   * Giro hacia el lado contrario: drive(200,-200,1000);
+  * Parar: drive(0,0,0);
+
+La última es importante. Si no la incluimos después de cualquiera de las otras, el robot no parará.
 
 {{:guias:guias:pid:differential-steering-tutorials-42bots2.png}}
 
@@ -200,7 +205,11 @@ Los sensores tienen casi siempre dos pines de alimentación y uno o más pines d
 
 Los sensores del ultrasonidos HC-SR04 tienen cuatro pienes: alimentación (VCC), masa (GND), trigger y echo. Estos dos últimos los unimos con una soldadura para ahorrarnos un cable, aunque tenemos que advertir que algunos modelos de algunos fabricantes no permiten esto, y al hacerlo no funcionan. Cablearemos con Dupont hembra-macho del sensor a la protoshield.
 
-{{:proyectos:hc-sr04.jpg|hc-sr04.jpg}}
+{{:proyectos:hc-sr04_c.jpg|}}
+
+El montaje del soporte a la placa superior es sencillo, con un tornillo M3x10 y una tuerca. La placa tiene tres orificios, usaremos el central para montar un único sensor o los laterales para montar dos.
+
+{{:proyectos:montaje_us.jpg}}
 
 Para leer la distancia que mide el sensor usaremos una nueva función, que de nuevo podemos guardar en una pestaña nueva en el IDE para dejar más limpio el programa principal
 <code>
