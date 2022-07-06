@@ -6,11 +6,11 @@ translate([-11.5,-17,-1])cube([23,25,24]);
 translate([15,12,-1])cylinder(d=2.8,h=32);    
 translate([-15,12,-1])cylinder(d=2.8,h=32); 
 
-translate([0,0,22.35])rotate([0,90,0])
+translate([0,4.5,13.615])rotate([0,90,0])
 difference(){
-    translate([8.735,4.5,-30])cylinder(d=12.2,h=60,$fn=60);
-    translate([14.835,4.5,0])cube([2,16,60],center=true);
-    translate([2.635,4.5,0])cube([2,16,60],center=true);
+    translate([0,0,-30])cylinder(d=12.2,h=60,$fn=60);
+    translate([6.1,0,0])cube([2,16,60],center=true);
+    translate([-6.1,0,0])cube([2,16,60],center=true);
 }
 
 translate([-18.5,-3.5,16])cylinder(d=2.6,h=11,$fn=12);
