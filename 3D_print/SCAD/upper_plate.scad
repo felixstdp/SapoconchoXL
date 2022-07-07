@@ -1,4 +1,4 @@
-
+// base superior para Arduino UNO
 $fn=120;
 
 difference(){
