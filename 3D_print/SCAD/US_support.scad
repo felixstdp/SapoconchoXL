@@ -8,6 +8,7 @@ translate([0,0,2])cube([45.6,25,5],center=true);
     
 translate([13,0,-5])cylinder(d=17,h=5,$fn=60);
 translate([-13,0,-5])cylinder(d=17,h=5,$fn=60);
+
 hull(){
 translate([-3.5,7.5,-5])cylinder(d=4,h=5,$fn=60);
 translate([3.5,7.5,-5])cylinder(d=4,h=5,$fn=60);
@@ -16,7 +17,10 @@ hull(){
 translate([-3.5,-8,-5])cylinder(d=4,h=5,$fn=60);
 translate([3.5,-8,-5])cylinder(d=4,h=5,$fn=60);
 }
+
+translate([0,-10.5,0])cube([11,5,8],center=true);
 }
+
 hull(){
 translate([23,9,1.9])sphere(0.8,$fn=20);
 translate([23,-9,1.9])sphere(0.8,$fn=20);
