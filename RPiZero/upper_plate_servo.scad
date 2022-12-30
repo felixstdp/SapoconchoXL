@@ -35,4 +35,6 @@ rotate([0,0,35])translate([0,-42,-1])cylinder(d=3.2,h=5);
 rotate([0,0,-35])translate([0,-42,-1])cylinder(d=3.2,h=5);  
 
 translate([0,-36,0])cube([12,22.5,10],center=true);
+translate([0,-36+27.5/2,0])cylinder(d=2,5,h=10,center=true);
+translate([0,-36-27.5/2,0])cylinder(d=2,5,h=10,center=true);
 }
