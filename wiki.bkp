@@ -51,7 +51,7 @@ El chasis base tiene pocas piezas y el montaje es muy sencillo.
 
 {{:proyectos:chasis_base.png}}
 
-**Paso 1**: Los motores amarillos se unirán al soporte con 4 tornillos M3x30.
+**Paso 1**: Los motores amarillos se unirán al soporte con 4 tornillos M3x30. Quizás quieras [[https://bricolabs.cc/wiki/proyectos/sapoconcho_xl#cableado_de_los_motores|soldarles los cables]] de conexión antes, después es más complicado hacerlo.
 
 {{:proyectos:foto_5-4-22_22_25_45.jpg|foto_5-4-22_22_25_45.jpg}}
 
@@ -59,11 +59,11 @@ El chasis base tiene pocas piezas y el montaje es muy sencillo.
 
 {{:proyectos:foto_5-4-22_22_28_43.jpg|foto_5-4-22_22_28_43.jpg}}
 
-**Paso 3**: Montar los 4 pilares a la base inferior con 4 tornillos M3x10.
+**Paso 3**: Montar los 4 pilares a la base inferior con 4 tornillos M3x10. Deberás sujetarlos con un alicate para que no giren mientras aprietas el tornillo allen.
 
 {{:proyectos:foto_5-4-22_22_34_04.jpg|foto_5-4-22_22_34_04.jpg}}
 
-**Paso 4**: Montar la base superior a los pilares con otros 4 tornillos M3x10. Ojo a la orientación en la foto.
+**Paso 4**: Montar la base superior a los pilares con otros 4 tornillos M3x10. Ojo a la orientación en la foto, el agujero pasacables grande debe estar del lado de los motores.
 
 {{:proyectos:montaje_4.jpg|montaje_4.jpg}}
 
@@ -71,7 +71,7 @@ El chasis base tiene pocas piezas y el montaje es muy sencillo.
 
 {{:proyectos:montaje_5.jpg|montaje_5.jpg}}
 
-Hay también la opción de montar motores N20, cambiando el soporte y las ruedas.
+**ALTERNATIVA**. Hay también la opción de montar motores N20, cambiando el soporte y las ruedas.
 
 {{:proyectos:soporte_n20.png}}
 
@@ -89,9 +89,17 @@ Para el driver DRV883 se tiene
 
 {{:proyectos:drv8833-dual-driver-pinout.jpg|drv8833-dual-driver-pinout.jpg}}
 
-Para conectar el driver vamos a usar cable rígido de colores cortado a medida. Las conexiones son las de la imagen. Aunque el color de los cables no influye en el funcionamiento, para la alimentación y masa (negativo) se suelen utilizar los colores rojo y negro. Los pines marcados como NC y STBY deben conectarse todos a +5V para que se mantenga la compatibilidad con el TB6612.
+Para conectar el driver vamos a usar cable rígido de colores cortado a medida. Las conexiones son las de la imagen. Aunque el color de los cables no influye en el funcionamiento, para la alimentación y masa (negativo) se suelen utilizar los colores rojo y negro. Para el otro puedes usar amarillo o el que quieras.
 
 {{:proyectos:ba6bb186-6486-4fa0-ba5e-d316b59d70b6.jpeg|ba6bb186-6486-4fa0-ba5e-d316b59d70b6.jpeg}}
+
+El cableado de la foto sirve para ambos drivers y aquí está esquematizado. **Cuenta bien** el número de huecos libres desde la derecha o la izquierda.
+
+{{:proyectos:tb6612_2.jpg?800|}}
+
+Sin embargo, **si utilizas el DRV8833**, puedes simplificarlo.
+
+{{:proyectos:drv8833_2.jpg?800|}}
 
 A continuación hay que pinchar el driver teniendo cuidado con que los pines y los cable coincidan como en la foto.
 
@@ -99,7 +107,7 @@ A continuación hay que pinchar el driver teniendo cuidado con que los pines y l
 
 ==== Cableado de los motores ====
 
-Necesitamos cuatro cables Dupont de 20cmm soldados en un extremos a los motores y con punta macho en el otro extremo para la protoshield. Pueden ir agrupados para hacer un montaje más elegante, aunque no es imprescindible. Tampoco es imprescindible, pero si una buena idea añadir un condensador cerámico de 0.1uF (código 104) en paralelo en cada motor.
+Necesitamos cuatro cables Dupont de 15-20cmm soldados en un extremos a los motores y con punta macho en el otro extremo para la protoshield. Pueden ir agrupados para hacer un montaje más elegante, aunque no es imprescindible. Tampoco es imprescindible, pero si una buena idea añadir un condensador cerámico de 0.1uF (código 104) en paralelo en cada motor.
 
 {{:proyectos:9297d22d-305f-47bb-bfdc-8db34adc8550.jpeg?800|9297d22d-305f-47bb-bfdc-8db34adc8550.jpeg}}
 
