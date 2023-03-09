@@ -1,6 +1,6 @@
-====== Montaje y programación de Sapoconcho XL ======
+====== Sapoconcho XL ======
 
-<WRAP tip> Esta página se ha migrado a github en el repositorio https://github.com/brico-labs/sapoconcho que genera el sitio https://sapoconcho.bricolabs.cc/</WRAP>
+<WRAP tip> Esta página se ha migrado a github en el repositorio [[https://github.com/brico-labs/sapoconcho|https://github.com/brico-labs/sapoconcho]] que genera el sitio [[https://sapoconcho.bricolabs.cc/|https://sapoconcho.bricolabs.cc/]]</WRAP>
 
 <WRAP tip>El proyecto [[https://bricolabs.cc/wiki/proyectos/sapoconcho|Sapoconcho]] se ha extendido con muchas versiones y forks. Esta entrada está centrada en el montaje mecánico, electrónico y programación de una versión concreta: Sapoconcho XL (o The Expanse). Se trata como todo el proyecto de un robot sencillo, versátil y (relativamente) barato con un chasis imprimible.</WRAP>
 
@@ -22,7 +22,7 @@ En una impresora típica de 200x200mm se pueden imprimir todas las piezas en dos
 
 {{:proyectos:prusa_sapoconcho.jpg|prusa_sapoconcho.jpg}}
 
-Todas las piezas están en este [[https://github.com/felixstdp/SapoconchoXL/tree/main/3D_print|repositorio]] de Github. Ahí puedes encontrar los archivos originales de OpenSCAD para modificarlos a tu gusto o los STL para imprimir directamente.
+Todas las piezas están en este [[https://github.com/brico-labs/sapoconcho/tree/main/3d_models|repositorio]] de Github. Ahí puedes encontrar los archivos originales de OpenSCAD para modificarlos a tu gusto o los STL para imprimir directamente.
 
 ===== Listado de materiales (BOM) =====
 
@@ -43,7 +43,7 @@ Todas las piezas están en este [[https://github.com/felixstdp/SapoconchoXL/tree
 
 ==== Enlaces para comprar material ====
 
-Lista de la compra en Amazon [[https://www.amazon.es/hz/wishlist/ls/9FKST3X6WCM?viewType=list]]
+Lista de la compra en Amazon [[https://www.amazon.es/hz/wishlist/ls/9FKST3X6WCM?viewType=list|https://www.amazon.es/hz/wishlist/ls/9FKST3X6WCM?viewType=list]]
 
 ===== Montaje mecánico =====
 
@@ -71,6 +71,10 @@ El chasis base tiene pocas piezas y el montaje es muy sencillo.
 
 {{:proyectos:montaje_5.jpg|montaje_5.jpg}}
 
+Hay también la opción de montar motores N20, cambiando el soporte y las ruedas.
+
+{{:proyectos:soporte_n20.png}}
+
 ===== Montaje eléctrico/electrónico =====
 
 Arduino no puede operar directamente un motor. Necesita un intermediario o [[https://bricolabs.cc/wiki/guias/control_de_motores|driver]]. Existen dos drivers de motores muy parecidos y válidos para Sapoconcho XL: el Toshiba TB6612 y el DRV8833. Aunque los pines no son iguales, el cableado y la programación hacen que sean intercambiables.
@@ -85,13 +89,13 @@ Para el driver DRV883 se tiene
 
 {{:proyectos:drv8833-dual-driver-pinout.jpg|drv8833-dual-driver-pinout.jpg}}
 
-Para conectar el driver vamos a usar cable rígido de colores cortado a medida. Las conexiones son las de la imagen. Aunque el color de los cables no influye en el funcionamiento, para la alimentación y masa (negativo) se suelen utilizar los colores rojo y negro.
+Para conectar el driver vamos a usar cable rígido de colores cortado a medida. Las conexiones son las de la imagen. Aunque el color de los cables no influye en el funcionamiento, para la alimentación y masa (negativo) se suelen utilizar los colores rojo y negro. Los pines marcados como NC y STBY deben conectarse todos a +5V para que se mantenga la compatibilidad con el TB6612.
 
-{{:proyectos:f06ef1fc-881e-4986-ae7f-a302dd8b34f2.jpeg|f06ef1fc-881e-4986-ae7f-a302dd8b34f2.jpeg}}
+{{:proyectos:ba6bb186-6486-4fa0-ba5e-d316b59d70b6.jpeg|ba6bb186-6486-4fa0-ba5e-d316b59d70b6.jpeg}}
 
 A continuación hay que pinchar el driver teniendo cuidado con que los pines y los cable coincidan como en la foto.
 
-{{:proyectos:abb802bd-d2fa-4a7c-aa1a-b700648a8d60.jpeg|abb802bd-d2fa-4a7c-aa1a-b700648a8d60.jpeg}}
+{{:proyectos:3977782d-3744-4488-b835-67cebbc965b4.jpeg|3977782d-3744-4488-b835-67cebbc965b4.jpeg}}
 
 ==== Cableado de los motores ====
 
@@ -205,11 +209,11 @@ Los sensores tienen casi siempre dos pines de alimentación y uno o más pines d
 
 Los sensores del ultrasonidos HC-SR04 tienen cuatro pienes: alimentación (VCC), masa (GND), trigger y echo. Estos dos últimos los unimos con una soldadura para ahorrarnos un cable, aunque tenemos que advertir que algunos modelos de algunos fabricantes no permiten esto, y al hacerlo no funcionan. Cablearemos con Dupont hembra-macho del sensor a la protoshield.
 
-{{:proyectos:hc-sr04_c.jpg|}}
+{{:proyectos:hc-sr04_c.jpg|hc-sr04_c.jpg}}
 
 El montaje del soporte a la placa superior es sencillo, con un tornillo M3x10 y una tuerca. La placa tiene tres orificios, usaremos el central para montar un único sensor o los laterales para montar dos.
 
-{{:proyectos:montaje_us.jpg}}
+{{:proyectos:montaje_us.jpg|montaje_us.jpg}}
 
 Para leer la distancia que mide el sensor usaremos una nueva función, que de nuevo podemos guardar en una pestaña nueva en el IDE para dejar más limpio el programa principal
 <code>
@@ -234,8 +238,6 @@ El uso es sencillo, la llamamos como
 long int distancia = sonar(pin);
 
 En donde le decimos a qué pin hemos conectado el sensor (en los siguientes programa utilizaremos el 2 y el 3), y la función nos devuelve la distancia al obstáculo en milímetros. Este [[https://github.com/felixstdp/SapoconchoXL/blob/main/ArduinoUNO/us_read.ino|código]] permite leer el sensor y mostrar el resultado por el monitor serie de Arduino para comprobar que funciona.
-
-Los montaremos con los soportes impresos con un tornillo y una tuerca.
 
 === Mantener la distancia ===
 
