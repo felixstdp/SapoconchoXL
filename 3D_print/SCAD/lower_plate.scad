@@ -13,7 +13,7 @@ motorandwheel();
 scale([-1,1,1])translate([11.5,0,-38.1])rotate([90,0,0])
 motorandwheel();
 
-translate([0,-3,55])rotate([-90,0,180])us_support();
+translate([0,-3,60])rotate([-90,0,180])us_support();
 
 translate([0,-60,-40])rotate([180,0,180])ballcaster();
 
@@ -161,8 +161,8 @@ cube(2);
 cylinder(d=4,h=2,$fn=30);
 }
 difference(){
-translate([-7.5,12,-3])cube([15,15,2.5]);
-translate([0,20,-4])cylinder(d=2.8,h=5,$fn=12);
+translate([-7.5,12,-3])cube([15,21,2.5]);
+translate([0,25,-4])cylinder(d=2.8,h=5,$fn=12);
 }
 }
 
